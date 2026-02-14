@@ -18,13 +18,15 @@ export const getTodos = async (req: Request, res: Response) => {
 // @route   POST /api/todos
 // @access  Private
 export const createTodo = async (req: Request, res: Response) => {
-    const { task } = req.body;
+    const { task, dueDate, priority } = req.body;
 
     try {
         const todo = new Todo({
             // @ts-ignore
             user: req.user._id,
             task,
+            dueDate,
+            priority,
             completed: false,
         });
 
@@ -39,7 +41,7 @@ export const createTodo = async (req: Request, res: Response) => {
 // @route   PUT /api/todos/:id
 // @access  Private
 export const updateTodo = async (req: Request, res: Response) => {
-    const { task, completed } = req.body;
+    const { task, completed, dueDate, priority } = req.body;
 
     try {
         const todo = await Todo.findById(req.params.id);
@@ -47,6 +49,8 @@ export const updateTodo = async (req: Request, res: Response) => {
         if (todo) {
             todo.task = task || todo.task;
             todo.completed = completed !== undefined ? completed : todo.completed;
+            if (dueDate !== undefined) todo.dueDate = dueDate;
+            if (priority !== undefined) todo.priority = priority;
 
             const updatedTodo = await todo.save();
             res.json(updatedTodo);
