@@ -82,4 +82,4 @@ A modern, full-stack admin dashboard built with **Next.js 15**, **MongoDB**, and
 *(Add your screenshots here)*
 
 ---
-Developed by [John C](https://github.com/cjohnmizo)
+Developed by [C. John](https://github.com/cjohnmizo)
