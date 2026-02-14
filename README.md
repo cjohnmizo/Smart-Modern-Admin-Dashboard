@@ -79,7 +79,6 @@ A modern, full-stack admin dashboard built with **Next.js 15**, **MongoDB**, and
 
 ## 📸 Screenshots
 
-*(Add your screenshots here)*
 
 ---
 Developed by [C. John](https://github.com/cjohnmizo)
