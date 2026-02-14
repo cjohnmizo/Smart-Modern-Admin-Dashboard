@@ -174,7 +174,7 @@ const Sidebar = () => {
                 animate={isCollapsed ? 'collapsed' : 'expanded'}
                 variants={sidebarVariants}
                 className={cn(
-                    "fixed left-0 top-0 z-50 h-full border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ease-in-out hidden md:flex flex-col",
+                    "h-full border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ease-in-out hidden md:flex flex-col",
                 )}
             >
                 <NavContent />
