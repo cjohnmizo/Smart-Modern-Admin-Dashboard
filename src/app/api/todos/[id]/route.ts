@@ -3,14 +3,14 @@ import connectDB from '@/lib/db';
 import Todo from '@/models/Todo';
 import { protect } from '@/lib/auth';
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         const user = await protect(req);
         if (!user) {
             return NextResponse.json({ message: 'Not authorized' }, { status: 401 });
         }
 
-        const { id } = params;
+        const { id } = await params;
         const { task, completed, dueDate, priority } = await req.json();
 
         const todo = await Todo.findById(id);
@@ -41,14 +41,14 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         const user = await protect(req);
         if (!user) {
             return NextResponse.json({ message: 'Not authorized' }, { status: 401 });
         }
 
-        const { id } = params;
+        const { id } = await params;
         const todo = await Todo.findById(id);
 
         if (!todo) {
