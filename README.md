@@ -1,102 +1,36 @@
-# Smart Modern Admin Dashboard
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A premium, production-ready Full Stack Admin Dashboard built with **Next.js 14**, **Typescript**, **Tailwind CSS**, **Node.js**, **Express**, and **MongoDB**.
+## Getting Started
 
-![Dashboard Preview](https://via.placeholder.com/800x400?text=Dashboard+Preview)
+First, run the development server:
 
-## 🚀 Features
-
-- **Full Stack Architecture**: Separated Client (Next.js) and Server (Express) for scalability.
-- **Authentication**: Secure JWT authentication with HttpOnly cookies support (configurable).
-- **Interactive Dashboard**: Real-time visualization with Recharts and Framer Motion.
-- **User Management**: Admin interface to manage users (CRUD operations).
-- **Responsive Design**: Mobile-first approach with collapsible sidebar and drawers.
-- **Dark Mode**: Built-in dark/light mode toggle with persistence.
-- **Start Modern UI**: Glassmorphism effects, smooth animations, and Shadcn UI components.
-- **To Do List**: Integrated task management with real-time updates and persistence.
-
-## 🛠 Tech Stack
-
-### Frontend
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS, Shadcn UI, Framer Motion
-- **State**: React Query (TanStack), Zustand
-- **Icons**: Lucide React
-
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB (Mongoose)
-- **Auth**: JWT, Bcrypt
-- **Validation**: Zod
-
-## 📂 Project Structure
-
-```
-/
-├── client/         # Next.js Frontend
-│   ├── src/
-│   │   ├── app/    # App Router Pages
-│   │   ├── components/ # Reusable Components
-│   │   └── lib/    # Utilities & API Client
-├── server/         # Express Backend
-│   ├── src/
-│   │   ├── config/ # DB Config
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   └── routes/
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## ⚡ Getting Started
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Prerequisites
-- Node.js (v18+)
-- MongoDB (Local or Atlas URI)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Installation
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/smart-admin-dashboard.git
-   cd smart-admin-dashboard
-   ```
+## Learn More
 
-2. **Setup Server**
-   ```bash
-   cd server
-   npm install
-   cp .env.example .env
-   # Configure MONGO_URI in .env
-   npm run dev
-   ```
+To learn more about Next.js, take a look at the following resources:
 
-3. **Setup Client**
-   ```bash
-   cd client
-   npm install
-   npm run dev
-   ```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-4. **Access the App**
-   - Frontend: `http://localhost:3000`
-   - Backend: `http://localhost:5000`
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 🔑 Admin Access
-The **first account** you register will automatically be assigned **Admin** privileges.
+## Deploy on Vercel
 
-## 🚀 Deployment
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Frontend (Vercel)
-1. Push `client` folder to GitHub.
-2. Import project in Vercel.
-3. Add Environment Variables (e.g., `NEXT_PUBLIC_API_URL`).
-4. Deploy.
-
-### Backend (Render/Railway)
-1. Push `server` folder.
-2. Create Web Service on Render/Railway.
-3. Add Environment Variables (`MONGO_URI`, `JWT_SECRET`).
-4. Link to Frontend.
-
-## 📄 License
-MIT
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
