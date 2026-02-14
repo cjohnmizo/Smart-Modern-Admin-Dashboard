@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from "@/components/ui/skeleton";
 import {
     Select,
     SelectContent,
@@ -187,8 +188,10 @@ export default function TodoList() {
 
                 <div className="flex-1 overflow-y-auto pr-2 -mr-2 space-y-2">
                     {loading ? (
-                        <div className="flex justify-center items-center h-20">
-                            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+                        <div className="space-y-2">
+                            {[1, 2, 3].map((i) => (
+                                <Skeleton key={i} className="h-12 w-full rounded-lg" />
+                            ))}
                         </div>
                     ) : todos.length === 0 ? (
                         <div className="text-center text-muted-foreground py-8">
@@ -243,8 +246,8 @@ export default function TodoList() {
                                             <button
                                                 onClick={() => handleToggleTodo(todo._id, todo.completed)}
                                                 className={`flex-shrink-0 rounded-full w-6 h-6 flex items-center justify-center border transition-colors ${todo.completed
-                                                        ? 'bg-primary border-primary text-primary-foreground'
-                                                        : 'border-muted-foreground text-transparent hover:border-primary'
+                                                    ? 'bg-primary border-primary text-primary-foreground'
+                                                    : 'border-muted-foreground text-transparent hover:border-primary'
                                                     }`}
                                             >
                                                 <Check className="h-3.5 w-3.5" />

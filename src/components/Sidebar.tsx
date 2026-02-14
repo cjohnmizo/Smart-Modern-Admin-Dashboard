@@ -56,22 +56,46 @@ const Sidebar = () => {
                 </Button>
             </div>
 
-            <nav className="flex-1 space-y-2 p-2">
+            <nav className="flex-1 space-y-2 p-2 relative z-10">
                 {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = pathname === item.href;
                     return (
                         <Link key={item.href} href={item.href} passHref onClick={() => setIsMobileOpen(false)}>
-                            <Button
-                                variant={isActive ? "secondary" : "ghost"}
-                                className={cn(
-                                    "w-full justify-start",
-                                    isCollapsed ? "justify-center px-2" : "px-4"
+                            <div className="relative">
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="activeNav"
+                                        className="absolute inset-0 bg-primary/10 border-l-4 border-primary rounded-r-md"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                    />
                                 )}
-                            >
-                                <Icon className={cn("h-5 w-5", isCollapsed ? "mr-0" : "mr-2")} />
-                                {!isCollapsed && <span>{item.name}</span>}
-                            </Button>
+                                <Button
+                                    variant="ghost"
+                                    className={cn(
+                                        "w-full justify-start relative z-20 transition-all duration-300",
+                                        isCollapsed ? "justify-center px-2" : "px-4",
+                                        isActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground hover:bg-transparent"
+                                    )}
+                                >
+                                    <Icon className={cn(
+                                        "h-5 w-5 transition-all duration-300",
+                                        isCollapsed ? "mr-0" : "mr-3",
+                                        isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+                                    )} />
+                                    {!isCollapsed && (
+                                        <motion.span
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            className="truncate"
+                                        >
+                                            {item.name}
+                                        </motion.span>
+                                    )}
+                                </Button>
+                            </div>
                         </Link>
                     );
                 })}

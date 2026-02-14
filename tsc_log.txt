@@ -1,0 +1,14 @@
+src/app/api/todos/route.ts(13,41): error TS2769: No overload matches this call.
+  Overload 1 of 4, '(filter?: _QueryFilter<{ _id: ObjectId; $assertPopulated: <Paths = {}>(path: string | string[], values?: Partial<Paths> | undefined) => Omit<ITodo, keyof Paths> & Paths; ... 249 more ...; "user.validateAll": (validators: (RegExp | ... 1 more ... | Validator<...>)[]) => ObjectId; }> | undefined, projection?: ProjectionType<...> | ... 1 more ... | undefined, options?: (QueryOptions<...> & Abortable) | undefined): Query<...>', gave the following error.
+    Type 'ObjectId' is not assignable to type 'Condition<ApplyBasicQueryCasting<ObjectId>> | undefined'.
+      Type 'ObjectId' is not assignable to type 'FilterOperators<ObjectId | ObjectId[] | null>'.
+        Types of property 'id' are incompatible.
+          Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'undefined'.
+  Overload 2 of 4, '(filter?: Query<any, any, {}, unknown, "find", Record<string, never>> | undefined, projection?: ProjectionType<ITodo> | null | undefined, options?: (QueryOptions<...> & Abortable) | undefined): Query<...>', gave the following error.
+    Object literal may only specify known properties, and 'user' does not exist in type 'Query<any, any, {}, unknown, "find", Record<string, never>>'.
+src/app/api/todos/route.ts(34,13): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Type 'ObjectId' is not assignable to type '{ readonly schemaName?: "ObjectId" | undefined; auto?: ((turnOn: boolean) => ObjectId) | undefined; $conditionalHandlers?: { [x: string]: ((val: any, context: any) => any) | undefined; } | undefined; ... 23 more ...; validateAll?: ((validators: (RegExp | ... 1 more ... | Validator<...>)[]) => ObjectId) | undefined; ...'.
+src/components/ui/scroll-area.tsx(43,30): error TS2339: Property 'ScrollThumb' does not exist on type 'typeof import("C:/Users/johnc/OneDrive/Desktop/Project/Smart Modern Admin Dashboard/node_modules/@radix-ui/react-scroll-area/dist/index")'.
+src/models/User.ts(46,9): error TS2349: This expression is not callable.
+  Type 'SaveOptions' has no call signatures.

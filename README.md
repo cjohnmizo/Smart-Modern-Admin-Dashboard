@@ -1,8 +1,10 @@
 # Smart Modern Admin Dashboard
 
+![App Screenshot](/dashboard-preview.png)
+
 A modern, full-stack admin dashboard built with Next.js, MongoDB, and Tailwind CSS.
 
-🚀 **Live Demo:** [https://smad-cjohnmizo.vercel.app/](https://smad-cjohnmizo.vercel.app/)
+🚀 **Live Demo:** [Here](https://smad-cjohnmizo.vercel.app/)
 
 ## Features
 

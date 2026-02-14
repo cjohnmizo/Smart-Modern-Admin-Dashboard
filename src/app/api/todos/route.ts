@@ -10,7 +10,7 @@ export async function GET(req: Request) {
             return NextResponse.json({ message: 'Not authorized' }, { status: 401 });
         }
 
-        const todos = await Todo.find({ user: user._id });
+        const todos = await Todo.find({ user: user._id as any });
         return NextResponse.json(todos);
     } catch (error: any) {
         if (error.message.includes('Not authorized')) {
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         const { task, dueDate, priority } = await req.json();
 
         const todo = await Todo.create({
-            user: user._id,
+            user: user._id as any,
             task,
             dueDate,
             priority,
