@@ -3,10 +3,19 @@ import connectDB from '@/lib/db';
 import User from '@/models/User';
 import { generateToken } from '@/lib/jwt';
 
+import { registerSchema } from '@/lib/validations';
+
 export async function POST(req: Request) {
     try {
         await connectDB();
-        const { name, email, password } = await req.json();
+        const body = await req.json();
+
+        const validation = registerSchema.safeParse(body);
+        if (!validation.success) {
+            return NextResponse.json(validation.error.format(), { status: 400 });
+        }
+
+        const { name, email, password } = validation.data;
 
         const userExists = await User.findOne({ email });
 

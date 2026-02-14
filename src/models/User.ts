@@ -10,6 +10,10 @@ export interface IUser extends Document {
     matchPassword: (enteredPassword: string) => Promise<boolean>;
 }
 
+interface UserModel extends Model<IUser> {
+    // Add static methods here if any
+}
+
 const userSchema = new Schema<IUser>({
     name: {
         type: String,
@@ -51,6 +55,6 @@ userSchema.pre('save', async function (this: IUser) {
 });
 
 // Avoid recompiling model in Next.js hot reload
-const User = (mongoose.models.User as Model<IUser>) || mongoose.model<IUser>('User', userSchema);
+const User = (mongoose.models.User as UserModel) || mongoose.model<IUser, UserModel>('User', userSchema);
 
 export default User;

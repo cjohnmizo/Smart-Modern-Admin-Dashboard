@@ -21,6 +21,10 @@ export async function GET(req: Request) {
     }
 }
 
+import { todoSchema } from '@/lib/validations';
+
+// ... (existing code)
+
 export async function POST(req: Request) {
     try {
         const user = await protect(req);
@@ -28,7 +32,13 @@ export async function POST(req: Request) {
             return NextResponse.json({ message: 'Not authorized' }, { status: 401 });
         }
 
-        const { task, dueDate, priority } = await req.json();
+        const body = await req.json();
+        const validation = todoSchema.safeParse(body);
+        if (!validation.success) {
+            return NextResponse.json(validation.error.format(), { status: 400 });
+        }
+
+        const { task, dueDate, priority } = validation.data;
 
         const todo = await Todo.create({
             user: user._id as any,

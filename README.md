@@ -2,26 +2,44 @@
 
 ![App Screenshot](/dashboard-preview.png)
 
-A modern, full-stack admin dashboard built with Next.js, MongoDB, and Tailwind CSS.
+A modern, full-stack admin dashboard built with **Next.js 15**, **MongoDB**, and **Tailwind CSS**. it features a premium UI with glassmorphism effects, dark mode support, and secure authentication.
 
 🚀 **Live Demo:** [Here](https://smad-cjohnmizo.vercel.app/)
 
-## Features
+## ✨ Features
 
-- **Authentication**: Secure Login and Registration system with JWT.
-- **Dashboard**: Interactive charts and statistics.
-- **Todo List**: Full CRUD functionality with priorities and due dates.
-- **User Management**: Admin controls for managing users.
-- **Responsive Design**: Works on all devices.
+- **🔐 Secure Authentication**: 
+  - JWT-based auth with HTTP-only cookies.
+  - Zod validation for robust input checking.
+  - Protected API routes and middleware.
+- **📊 Interactive Dashboard**: 
+  - Real-time statistics and data visualization using Recharts.
+  - Recent activity tracking.
+- **📝 Todo Management**: 
+  - Full CRUD operations.
+  - Priority levels (High, Medium, Low) and due dates.
+- **bust User Management**: 
+  - Admin controls for viewing and managing users.
+  - Role-based access control (Admin/User).
+- **🎨 Premium UI/UX**: 
+  - Fully responsive design.
+  - Dark/Light mode toggle.
+  - Smooth animations with Framer Motion.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 15+, React, Tailwind CSS, Shadcn/ui.
-- **Backend**: Next.js API Routes (Serverless).
-- **Database**: MongoDB (via Mongoose).
-- **Authentication**: JSON Web Tokens (JWT).
+- **Frontend**: Next.js 15 (App Router), React 19, Tailwind CSS, Shadcn/ui, Framer Motion, Recharts, Lucide Icons.
+- **Backend**: Next.js API Routes (Serverless), Mongoose, JWT, Zod.
+- **Database**: MongoDB.
+- **language**: TypeScript.
 
-## Getting Started
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+)
+- MongoDB connection string
+
+### Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -38,7 +56,8 @@ A modern, full-stack admin dashboard built with Next.js, MongoDB, and Tailwind C
     Create a `.env.local` file in the root directory:
     ```env
     MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret
+    JWT_SECRET=your_secure_jwt_secret_key_here
+    NEXT_PUBLIC_APP_URL=http://localhost:3000
     ```
 
 4.  **Run the application:**
@@ -46,11 +65,21 @@ A modern, full-stack admin dashboard built with Next.js, MongoDB, and Tailwind C
     npm run dev
     ```
 
-## Deployment
+## 📡 API Endpoints
 
-This project is optimized for deployment on **Vercel**.
+### Auth
+- `POST /api/auth/register` - Register a new user.
+- `POST /api/auth/login` - Login and receive HttpOnly cookie.
 
-1.  Push your code to GitHub.
-2.  Import the project into Vercel.
-3.  Add `MONGO_URI` and `JWT_SECRET` in Vercel's **Environment Variables** settings.
-4.  Deploy!
+### Todos
+- `GET /api/todos` - Get all todos for logged-in user.
+- `POST /api/todos` - Create a new todo.
+- `PUT /api/todos/[id]` - Update a todo.
+- `DELETE /api/todos/[id]` - Delete a todo.
+
+## 📸 Screenshots
+
+*(Add your screenshots here)*
+
+---
+Developed by [John C](https://github.com/cjohnmizo)
