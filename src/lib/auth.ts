@@ -5,7 +5,7 @@ import User from '@/models/User';
 import connectDB from '@/lib/db';
 
 
-const JWT_SECRET = process.env.JWT_SECRET!;
+const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) throw new Error("JWT_SECRET is missing");
 
 export async function protect(req: Request) {
@@ -20,7 +20,7 @@ export async function protect(req: Request) {
     if (authHeader && authHeader.startsWith('Bearer')) {
         try {
             token = authHeader.split(' ')[1];
-            const decoded: any = jwt.verify(token, JWT_SECRET);
+            const decoded: any = jwt.verify(token, JWT_SECRET as string);
             const user = await User.findById(decoded.id).select('-password');
             return user;
         } catch (error) {
@@ -32,7 +32,7 @@ export async function protect(req: Request) {
     if (tokenFromCookie) {
         token = tokenFromCookie.value;
         try {
-            const decoded: any = jwt.verify(token, JWT_SECRET);
+            const decoded: any = jwt.verify(token, JWT_SECRET as string);
             const user = await User.findById(decoded.id).select('-password');
             return user;
         } catch (error) {
