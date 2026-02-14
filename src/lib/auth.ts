@@ -4,7 +4,9 @@ import { cookies } from 'next/headers';
 import User from '@/models/User';
 import connectDB from '@/lib/db';
 
-import { JWT_SECRET } from '@/lib/jwt';
+
+const JWT_SECRET = process.env.JWT_SECRET!;
+if (!JWT_SECRET) throw new Error("JWT_SECRET is missing");
 
 export async function protect(req: Request) {
     await connectDB();

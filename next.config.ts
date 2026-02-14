@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
-
+const nextConfig: NextConfig = {
+    // Remove ignoreBuildErrors
 };
 
 export default nextConfig;
